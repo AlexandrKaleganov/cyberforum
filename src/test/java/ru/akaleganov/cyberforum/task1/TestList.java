@@ -61,15 +61,21 @@ public class TestList {
     @ToString
     private static class NewEntity {
         String str;
-
         public NewEntity(String str) {
             this.str = str;
         }
-
         @Override
         public int hashCode() {
             return Objects.hash(str);
         }
-
     }
+
+
+    @DisplayName("тест LinkedList")
+    @Test()
+    public void testLinkedList() {
+        List<String> list = new LinkedList<>();
+        log.info(list.get(50));
+    }
+
 }
