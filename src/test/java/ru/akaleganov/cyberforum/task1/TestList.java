@@ -74,8 +74,8 @@ public class TestList {
     @DisplayName("тест LinkedList")
     @Test()
     public void testLinkedList() {
-        List<String> list = new LinkedList<>();
-        log.info(list.get(50));
+//        List<String> list = new ArrayList<>();
+//        log.info(list.get(50));
     }
 
 }
