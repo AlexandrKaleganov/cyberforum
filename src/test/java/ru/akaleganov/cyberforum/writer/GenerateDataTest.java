@@ -25,14 +25,15 @@ class GenerateDataTest {
         List<String> operations = Arrays.asList(
                 "INCOMING",
                 "UPLOADING");
+        double weight = 70.58d;
         LocalDateTime start = LocalDateTime.of(2021, 1, 1, 10, 10);
-        LocalDateTime end = LocalDateTime.of(2021, 2, 28, 10, 10);
+        LocalDateTime end = LocalDateTime.of(2021, 3, 1, 10, 10);
         // генерация фактических значений
         new GenerateData().writerFileData(start, end, uuid, operations, "event.csv",
-                BigDecimal.valueOf(70, 58));
+                BigDecimal.valueOf(weight));
 
         // гнерация плановых значений
         new GenerateData().writerFileData(start, end, uuid, operations, "plan.csv",
-                BigDecimal.valueOf(70, 58));
+                BigDecimal.valueOf(weight));
     }
 }

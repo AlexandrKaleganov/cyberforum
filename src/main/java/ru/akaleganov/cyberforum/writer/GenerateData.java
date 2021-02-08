@@ -21,12 +21,11 @@ public class GenerateData {
     private final Random rn = new Random();
 
     /**
-     *
-     * @param start дата начала периода
-     * @param end дата окончания периода
-     * @param uuid список ресурсов
-     * @param operation список операци
-     * @param filename название файла
+     * @param start            дата начала периода
+     * @param end              дата окончания периода
+     * @param uuid             список ресурсов
+     * @param operation        список операци
+     * @param filename         название файла
      * @param weight_one_wagon вес одного вагона
      */
     public void writerFileData(LocalDateTime start, LocalDateTime end, List<String> uuid,
@@ -43,15 +42,14 @@ public class GenerateData {
         }
 
 
-
     }
 
     /**
-     * @param start     начало периода
-     * @param end       окончание периода
-     * @param uuid      uuid ресурса
-     * @param operation операция
-     * @param fileName имя файла
+     * @param start            начало периода
+     * @param end              окончание периода
+     * @param uuid             uuid ресурса
+     * @param operation        операция
+     * @param fileName         имя файла
      * @param weight_one_wagon вес одного вагона
      * @return генерация ресурса на период
      */
@@ -73,12 +71,12 @@ public class GenerateData {
     }
 
     /**
-     * @param localDateTime дата начала операции/ дата окончания операции
-     * @param uuid          uuid ресурса
-     * @param operation     операция
-     * @param res результат
-     * @param weight_one_wagon  вес вагона
-     *                      генерация факта по ресурсу на день
+     * @param localDateTime    дата начала операции/ дата окончания операции
+     * @param uuid             uuid ресурса
+     * @param operation        операция
+     * @param res              результат
+     * @param weight_one_wagon вес вагона
+     *                         генерация факта по ресурсу на день
      */
     private void generateByDayFact(LocalDateTime localDateTime, String uuid,
                                    String operation, StringBuilder res, BigDecimal weight_one_wagon) {
@@ -90,19 +88,19 @@ public class GenerateData {
 
 
     /**
-     * @param localDateTime дата начала операции/ дата окончания операции
-     * @param uuid          uuid ресурса
-     * @param operation     операция
-     * @param res результат
+     * @param localDateTime    дата начала операции/ дата окончания операции
+     * @param uuid             uuid ресурса
+     * @param operation        операция
+     * @param res              результат
      * @param weight_one_wagon вес вагона
-     *                      генерация плана по ресурсу на день
+     *                         генерация плана по ресурсу на день
      */
     private void generateByDayPlan(LocalDateTime localDateTime, String uuid,
                                    String operation, StringBuilder res, BigDecimal weight_one_wagon) {
         var countWagon = rn.nextInt(150);
-        BigDecimal total_weight =  weight_one_wagon.multiply(BigDecimal.valueOf(countWagon));
-        res.append(String.format("%s;%s;%s;%s;%s\n",
-                localDateTime.format(dTf), localDateTime.format(dTf), operation, uuid, total_weight));
+        BigDecimal total_weight = weight_one_wagon.multiply(BigDecimal.valueOf(countWagon));
+        res.append(String.format("%s;%s;%s;%s\n",
+                localDateTime.format(dTf), operation, uuid, total_weight));
     }
 
     /**
