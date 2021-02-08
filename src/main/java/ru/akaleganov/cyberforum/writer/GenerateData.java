@@ -100,7 +100,7 @@ public class GenerateData {
         var countWagon = rn.nextInt(150);
         BigDecimal total_weight = weight_one_wagon.multiply(BigDecimal.valueOf(countWagon));
         res.append(String.format("%s;%s;%s;%s\n",
-                localDateTime.format(dTf), operation, uuid, total_weight));
+                localDateTime.format(df), operation, uuid, total_weight));
     }
 
     /**
