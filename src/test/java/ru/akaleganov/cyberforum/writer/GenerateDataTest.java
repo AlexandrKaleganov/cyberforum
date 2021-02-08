@@ -2,11 +2,12 @@ package ru.akaleganov.cyberforum.writer;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-class GenerateFactTest {
+class GenerateDataTest {
 
     @Test
     public void testWrite() {
@@ -26,6 +27,12 @@ class GenerateFactTest {
                 "UPLOADING");
         LocalDateTime start = LocalDateTime.of(2021, 1, 1, 10, 10);
         LocalDateTime end = LocalDateTime.of(2021, 2, 28, 10, 10);
-        new GenerateFact().writerFile(start, end, uuid, operations);
+        // генерация фактических значений
+        new GenerateData().writerFileData(start, end, uuid, operations, "event.csv",
+                BigDecimal.valueOf(70, 58));
+
+        // гнерация плановых значений
+        new GenerateData().writerFileData(start, end, uuid, operations, "plan.csv",
+                BigDecimal.valueOf(70, 58));
     }
 }
