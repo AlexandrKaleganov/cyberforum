@@ -26,6 +26,11 @@ public class StreamTest {
     public void streamTest1() {
         IntStream.of(50, 60, 70, 80, 90, 100, 110, 120).filter(x -> x< 90).map(x -> x + 10)
                 .limit(3).forEach(System.out::println);
+
+         Integer k = null;
+         Integer i = 5;
+       Integer res =  i - null;
+        System.out.println(res);
     }
 
 }

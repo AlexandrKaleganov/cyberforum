@@ -99,8 +99,8 @@ public class GenerateData {
                                    String operation, StringBuilder res, BigDecimal weight_one_wagon) {
         var countWagon = rn.nextInt(150);
         BigDecimal total_weight = weight_one_wagon.multiply(BigDecimal.valueOf(countWagon));
-        res.append(String.format("%s;%s;%s;%s;%s\n",
-                localDateTime.format(df), operation, uuid, countWagon, total_weight));
+        res.append(String.format("%s;%s;%s;%s\n",
+                localDateTime.format(df), operation, uuid, countWagon));
     }
 
     /**
