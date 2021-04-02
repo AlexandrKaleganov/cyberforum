@@ -26,6 +26,15 @@
 			<version>1.7.0</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<!-- https://mvnrepository.com/artifact/com.owlike/genson -->
+		<dependency>
+			<groupId>com.owlike</groupId>
+			<artifactId>genson</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
 		<dependency>
 			<groupId>org.junit.vintage</groupId>

@@ -1,7 +1,6 @@
 package ru.akaleganov.cyberforum.writer;
 
 import lombok.extern.log4j.Log4j2;
-import lombok.var;
 
 import java.io.FileWriter;
 import java.io.IOException;
