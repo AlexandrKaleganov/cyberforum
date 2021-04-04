@@ -1,5 +1,7 @@
 package ru.akaleganov.cyberforum.mapper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.owlike.genson.Genson;
 import org.junit.jupiter.api.Test;
 
@@ -41,16 +43,22 @@ public class Mapper {
             + "  },\n"
             + "  \"scope\": \"openid email profile\",\n"
             + "  \"email_verified\": false,\n"
-            + "  \"name\": \"Александр Калеганов\",\n"
+//            + "  \"name\": \"Александр Калеганов\",\n"
             + "  \"preferred_username\": \"aonlmk\\\\kaleganov_av\",\n"
             + "  \"given_name\": \"Александр\",\n"
-            + "  \"family_name\": \"Калеганов\",\n"
-            + "  \"email\": \"kaleganov_av@nlmk.com\"\n"
+            + "  \"family_name\": \"Калеганов\"\n"
+//            + "  \"email\": \"kaleganov_av@nlmk.com\"\n"
             + "}";
     @Test
     public void testMap () {
         Genson genson = new Genson();
-        User user = genson.deserialize(res, User.class);
+        User user = null;
+        try {
+            user = new ObjectMapper().readValue(res, User.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
         System.out.println(user);
     }
 }
