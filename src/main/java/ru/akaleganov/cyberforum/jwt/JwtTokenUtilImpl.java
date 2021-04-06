@@ -1,8 +1,7 @@
 package ru.akaleganov.cyberforum.jwt;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import org.keycloak.common.util.Base64;
+import java.util.Base64;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
@@ -28,13 +27,8 @@ public class JwtTokenUtilImpl implements JwtTokenUtil {
     }
 
     private String getJson(String strEncoded) {
-        byte[] decodedBytes = new byte[0];
-        try {
-            decodedBytes = Base64.decode(strEncoded, Base64.URL_SAFE);
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        return new String(decodedBytes, StandardCharsets.UTF_8);
+        return new String(Base64.getDecoder().decode(strEncoded.replace('-', '+')
+                                                               .replace('_', '/')));
     }
 
 }
