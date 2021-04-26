@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserBuilderFromContextImpl implements UserBuilderFromContext {
 
-    private final Genson genson;
+    private final Genson genson = new Genson();
 
     private final JwtTokenUtilImpl jwtTokenUtil;
 
