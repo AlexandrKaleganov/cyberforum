@@ -67,15 +67,13 @@ public class InstantTest {
     /**
      * Фильтрует смены по времени.
      *
-     * @param e
-     *         {@link ShiftDto}
      * @param dateTime
      *         {Дата и время, которое возможно входит в какую-то смену}
      *
      * @return вернёт true, если
      */
-    private boolean isContainsTimeInShift(ShiftDto e, Instant dateTime) {
-        Period period = getPeriodShiftFromInstant(e, dateTime);
+    private boolean isContainsTimeInShift(Time start, Time end, Instant dateTime) {
+        Period period = getPeriodShiftFromInstant(start, end, dateTime);
         return period.getStartPeriod().isBefore(dateTime) && period.getEndPeriod().isAfter(dateTime);
     }
 
